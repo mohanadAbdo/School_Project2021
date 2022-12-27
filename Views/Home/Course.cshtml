@@ -1,0 +1,91 @@
+﻿@model VideoContext
+@{
+    int id = ViewBag.courseId;
+    var courseName = Model.Courses.Find(id).Name;
+    var courseDiscraption = Model.Courses.Find(id).Discraption;
+
+    List<Video> Videos = Model.Videos.Where(x => x.CourseID == id).ToList();
+    List<Comment> Comments = Model.Comments.ToList();
+}
+
+<section id="about">
+    <div class="container aos-init aos-animate" data-aos="fade-up">
+
+        <header class="section-header">
+            <h3>@courseName</h3>
+            <p>@courseDiscraption</p>
+        </header>
+
+
+        @for (int i = 0; i < Videos.Count; i++)
+        {
+            <div class="about-col">
+                <div class="row about-cols" style=" --bs-gutter-x: 1.5rem; margin-bottom:1.5rem">
+                    <div class="col-md-4 aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+                        <h2 class="title">@(i+1)-@Videos[i].Title</h2>
+                        <p>@Videos[i].Discraption</p>
+                        <div>
+                            <hr />
+                            <div class="row">
+                                <div class="col"><h3><b>Comments</b></h3></div>
+                                <div class="col">
+                                    <button class=" btn btn-dark" style="border-radius:20px" onclick="showHide(@i)">Show & Hide</button>
+                                    <script>
+                                        function showHide(count)
+                                        {
+                                            var x = document.getElementsByClassName("comments" + count);
+                                            for (var i = 0; i < x.length; i++)
+                                            {
+                                                if (x[i].style.display === "none")
+                                                {
+                                                    x[i].style.display = "block";
+                                                } else
+                                                {
+                                                    x[i].style.display = "none";
+                                                }
+                                            }
+                                        }
+                                    </script>
+                                </div>
+                            </div>
+                            @{ Comments = Model.Comments.Where(x => x.VideoID == Videos[i].Id).ToList();}
+                            <div class="comments@(i)">
+                                @for (int j = 0; j < Comments.Count; j++)
+                                {
+                                    <div class="card">
+                                        <div class="row">
+                                            <div class="col" style="text-align:center">@Comments[j].UserName</div>
+                                            <div class="col-8" style="text-align:center">@Comments[j].Date</div>
+                                        </div>
+                                        <div class="col" style="padding-left:30px">@Comments[j].Text</div>
+                                    </div>
+                                }
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="col-md-8 aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+                        <iframe width="100%" style="height:400px;" src="//www.youtube.com/embed/@Videos[i].URL" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <form class="row" asp-action="AddComment" asp-route-currentCourseId="@Videos[i].CourseID" asp-route-currentVideoId="@Videos[i].Id">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-10" style="width: 78.333333%;">
+                                <input class="form-control" type="text" name="text" id="text" placeholder="Add comment">
+                            </div>
+                            <div class="col">
+                                <button class="btn btn-primary" type="submit">Comment</button>
+                            </div>
+                            <div class="col">
+                                <button class="btn btn-danger" type="button" onclick="getElementById('text').value=''">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        }
+    </div>
+</section>

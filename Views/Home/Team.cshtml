@@ -1,0 +1,78 @@
+﻿@model List<TeamMember>
+<section id="team">
+    <div class="container aos-init aos-animate" data-aos="fade-up">
+        <div class="section-header">
+            <h3> Our Great Team</h3>
+            <p>😊 Team ho is made this beautiful website 😊</p>
+        </div>
+
+
+        <div class="row justify-content-center align-items-center">
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-3 col-md-6">
+                    <div class="member aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+                        <img src="~/assets/img/team/@item.Image" class="img-fluid" alt="" height="400">
+                        <div class="member-info">
+                            <div class="member-info-content">
+                                <h4>@item.Name</h4>
+
+                                <span>@item.JopTitle</span>
+                                <p>@item.Discraption</p>
+                                <div class="social">
+                                    <a href="#"><i class="bi bi-twitter"></i></a>
+                                    <a href="#"><i class="bi bi-facebook"></i></a>
+                                    <a href="#"><i class="bi bi-instagram"></i></a>
+                                    <a href="#"><i class="bi bi-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            }
+            @*<div class="col-lg-3 col-md-6">
+                <div class="member aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+                    <img src="../assets/img/team/ahmet.jpg" class="img-fluid" alt="">
+                    <div class="member-info">
+                        <div class="member-info-content">
+                            <h4>Ahmad Basmaji</h4>
+                            <span>Wep Developer (back end)</span>
+                            <span>Game Developer (unity)</span>
+                            <span>Mobil App Developer (Flutter)</span>
+                            <div class="social">
+                                <a href="#"><i class="bi bi-twitter"></i></a>
+                                <a href="#"><i class="bi bi-facebook"></i></a>
+                                <a href="#"><i class="bi bi-instagram"></i></a>
+                                <a href="#"><i class="bi bi-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="member aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+                    <img src="~/assets/img/team/kabbani.jpg" class="img-fluid" alt="">
+                    <div class="member-info">
+                        <div class="member-info-content">
+                            <h4>Muhammed Kabbani</h4>
+                            <span>Wep Developer (Back End)</span>
+                            
+                            <span>Wep Developer (Front End)</span>
+                            <div class="social">
+                                <a href="#"><i class="bi bi-twitter"></i></a>
+                                <a href="#"><i class="bi bi-facebook"></i></a>
+                                <a href="#"><i class="bi bi-instagram"></i></a>
+                                <a href="#"><i class="bi bi-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>*@
+
+        </div>
+
+
+    </div>
+</section>

@@ -1,0 +1,62 @@
+﻿@model IEnumerable<School_Project2021.Models.Video>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Videos</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-secondary">Create New</a>
+</p>
+<table class="table">
+    <thead thead-dar>
+        <tr>
+            <th>
+                #
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Discraption)
+            </th>
+            <th class="col-1">
+                @Html.DisplayNameFor(model => model.URL)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Course)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (int i = Model.ToList().Count-1; i >=0 ; i--)
+        {
+            <tr>
+                <td>
+                    @(i+1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.ToList()[i].Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.ToList()[i].Discraption)
+                </td>
+                <td>
+                    <div class="row-cols-1">
+                        @Html.DisplayFor(modelItem => Model.ToList()[i].URL)
+                    </div>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.ToList()[i].Course.Name)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@Model.ToList()[i].Id" class="btn btn-primary">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@Model.ToList()[i].Id" class="btn btn-dark">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@Model.ToList()[i].Id" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

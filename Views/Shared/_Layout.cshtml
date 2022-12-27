@@ -1,0 +1,211 @@
+﻿@if (IsSectionDefined("Scripts"))
+{
+    IgnoreSection("Scripts");
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Free Course</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="~/assets/img/favicon.png" rel="icon">
+    <link href="~/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="~/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+    <link href="~/assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="~/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="~/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="~/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="~/assets/css/style.css" rel="stylesheet">
+
+    <!-- =======================================================
+    * Template Name: Free Course - v5.8.0
+    * Template URL: https://bootstrapmade.com/Free Course-bootstrap-business-template/
+    * Author: BootstrapMade.com
+    * License: https://bootstrapmade.com/license/
+    ======================================================== -->
+</head>
+
+<body>
+
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top d-flex align-items-center header-transparent">
+        <div class="container-fluid">
+
+            <div class="row justify-content-center align-items-center">
+                <div class="col-xl-11 d-flex align-items-center justify-content-between">
+                    <h1 class="logo"><a asp-controller="home" asp-action="Index">Free Course</a></h1>
+                    <!-- Uncomment below if you prefer to use an image logo -->
+                    <!-- <a href="index.html" class="logo"><img/background src="~/assets/img/background/logo.png" alt="" class="img/background-fluid"></a>-->
+
+                    <nav id="navbar" class="navbar">
+                        <ul>
+                            <li><a class="nav-link scrollto active" asp-controller="home" asp-action="index">Home</a></li>
+                            <li><a class="nav-link scrollto" asp-controller="home" asp-action="Contact">Contact Us</a></li>
+                            <li><a class="nav-link scrollto" asp-controller="home" asp-action="Team">Team</a></li>
+
+                          @*  @if (User.IsInRole("Admin"))
+                            {
+                            }*@
+                                <li><a class="nav-link scrollto" asp-controller="Courses" asp-action="Index">Admin</a></li>
+
+                            <partial name="_LoginPartial" />
+                            @*<li><a class="nav-link scrollto" asp-controller="home" asp-action="index">@Resources.Words.Home_Menu</a></li>
+                                <li><a class="nav-link scrollto" asp-controller="home" asp-action="Contact">@Resources.Words.Contact_Us_Menu</a></li>
+                                <li><a class="nav-link scrollto" asp-controller="home" asp-action="Team">@Resources.Words.Team_Menu</a></li>
+
+                                @if (User.IsInRole("Admin"))
+                                {
+                                    <li><a class="nav-link scrollto" asp-controller="Courses" asp-action="Index">@Resources.Words.Admin_Menu</a></li>
+                                }
+                                <partial name="_LoginPartial" />*@
+
+                            @*<li class="dropdown">
+                                    <a class="nav-link">Language </a>
+                                    <ul>
+                                        <li class="dropdown-item" style="padding-left:0px;">
+                                            <a class="nav-link scrollto"> @Html.ActionLink("English", ViewContext.RouteData.Values["action"].ToString(), ViewContext.RouteData.Values["controller"].ToString(), new { language = "en-EN" }, null)</a>
+                                        </li>
+                                        <li class="dropdown-item" style="padding-left:0px;">
+                                            <a class="nav-link scrollto"> @Html.ActionLink("Türkçe", ViewContext.RouteData.Values["action"].ToString(), ViewContext.RouteData.Values["controller"].ToString(), new { language = "tr-TR" }, null)</a>
+                                        </li>
+                                    </ul>
+                                </li>*@
+
+                        </ul>
+                        @*<i class="bi bi-list mobile-nav-toggle"></i>*@
+                    </nav><!-- .navbar -->
+                </div>
+            </div>
+
+        </div>
+    </header><!-- End Header -->
+    <!-- ======= hero Section ======= -->
+    <section id="hero">
+        <div class="hero-container">
+            <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+
+                <ol id="hero-carousel-indicators" class="carousel-indicators"></ol>
+
+                <div class="carousel-inner" role="listbox">
+
+                    @*  first image header and discraption *@
+
+                    <div class="carousel-item active" style="background-image: url(../assets/img/background/web1.jpg)">
+                        <div class="carousel-container">
+                            <div class="container">
+                                <h2 class="animate__animated animate__fadeInDown">We are professional</h2>
+                                <p class="animate__animated animate__fadeInUp">Watch high-quality online computer programming courses. Start with the C Programming course, then learn other programming languages like C++ and Python</p>
+                                <a href="#featured-services" class="btn-get-started scrollto animate__animated animate__fadeInUp">Get Started</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item" style="background-image: url(../assets/img/background/web2.jpg)">
+                        <div class="carousel-container">
+                            <div class="container">
+                                <h2 class="animate__animated animate__fadeInDown">All Courses Free</h2>
+                                <p class="animate__animated animate__fadeInUp"> Learn how to start a business from our entrepreneurship course. Watch interviews from industry leaders and much more.</p>
+                                <a href="#featured-services" class="btn-get-started scrollto animate__animated animate__fadeInUp">Get Started</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item" style="background-image: url(../assets/img/background/web3.jpg) ">
+                        <div class="carousel-container">
+                            <div class="container">
+                                <h2 class="animate__animated animate__fadeInDown">Learn the most popular programming language</h2>
+                                <p class="animate__animated animate__fadeInUp">Browse the latest online programming courses from Harvard University, including Introduction to Game Development&quot; and Web Programming with Python and JavaScript.</p>
+                                <a href="#featured-services" class="btn-get-started scrollto animate__animated animate__fadeInUp">Get Started</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item" style="background-image: url(../assets/img/background/about-plan.jpg)">
+                        <div class="carousel-container">
+                            <div class="container">
+                                <h2 class="animate__animated animate__fadeInDown">Learn to develop a backend and front end</h2>
+                                <p class="animate__animated animate__fadeInUp">Online computer programming courses in Arabic and online computer science courses in a fun and easy style for native Arabic speakers.</p>
+                                <a href="#featured-services" class="btn-get-started scrollto animate__animated animate__fadeInUp">Get Started</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item" style="background-image: url(../assets/img/background/about-vision.jpg)">
+                        <div class="carousel-container">
+                            <div class="container">
+                                <h2 class="animate__animated animate__fadeInDown">Learn the principles of creating web applications</h2>
+                                <p class="animate__animated animate__fadeInUp">Choose what you’d like to learn from our extensive subscription library</p>
+                                <a href="#featured-services" class="btn-get-started scrollto animate__animated animate__fadeInUp">Get Started</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+                </a>
+
+                <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
+                    <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+                </a>
+
+            </div>
+        </div>
+    </section><!-- End Hero Section -->
+
+    <main id="main">
+        @RenderBody()
+    </main><!-- End #main -->
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+
+        <div class="container">
+            <div class="copyright">
+                &copy; Copyright <strong>Free Course</strong>. All Rights Reserved
+            </div>
+            <div class="credits">
+                <!--
+                  All the links in the footer should remain intact.
+                  You can delete the links only if you purchased the pro version.
+                  Licensing information: https://bootstrapmade.com/license/
+                  Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Free Course
+                -->
+                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <!-- Uncomment below i you want to use a preloader -->
+    <!-- <div id="preloader"></div> -->
+    <!-- Vendor JS Files -->
+    <script src="~/assets/vendor/purecounter/purecounter.js"></script>
+    <script src="~/assets/vendor/aos/aos.js"></script>
+    <script src="~/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="~/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="~/assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="~/assets/vendor/waypoints/noframework.waypoints.js"></script>
+    <script src="~/assets/vendor/php-email-form/validate.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="~/assets/js/main.js"></script>
+
+</body>
+
+</html>
